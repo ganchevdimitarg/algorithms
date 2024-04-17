@@ -32,6 +32,8 @@ public class Main {
            Mergesort
            N * logN
         */
-        System.out.println(Arrays.toString(Merge.sort(testArray)));
+//        System.out.println(Arrays.toString(Merge.sort(testArray)));
+
+
     }
 }

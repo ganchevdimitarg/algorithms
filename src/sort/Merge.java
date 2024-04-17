@@ -29,9 +29,7 @@ public class Merge extends Common {
             return;
         }
         int mid = lo + (hi - lo) / 2;
-        System.out.println(lo + " " + mid);
         sort(a, lo, mid);
-        System.out.println(mid + " " + hi);
         sort(a, mid + 1, hi);
         merge(a, lo, mid, hi);
     }
