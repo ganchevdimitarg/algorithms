@@ -29,20 +29,16 @@ public class Merge extends Common {
             return;
         }
         int mid = lo + (hi - lo) / 2;
+        System.out.println(lo + " " + mid);
         sort(a, lo, mid);
+        System.out.println(mid + " " + hi);
         sort(a, mid + 1, hi);
         merge(a, lo, mid, hi);
     }
 
     public static Comparable[] sort(Comparable[] a) {
-        aux = new Comparable[a.length]; // Allocate space just once.
+        aux = new Comparable[a.length];
         sort(a, 0, a.length - 1);
         return a;
     }
-
-/*    public static Comparable[] sortBU(Comparable[] a) {
-        int N = a.length;
-        aux = new Comparable[N];
-        for (int i = 0; i < N; i++) {}
-    }*/
 }
