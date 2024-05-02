@@ -1,5 +1,8 @@
 package sort;
 
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -103,8 +106,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     public MaxPQ(Key[] keys) {
         n = keys.length;
         pq = (Key[]) new Object[keys.length + 1];
-        for (int i = 0; i < n; i++)
-            pq[i + 1] = keys[i];
+        System.arraycopy(keys, 0, pq, 1, n);
         for (int k = n / 2; k >= 1; k--)
             sink(k);
         assert isMaxHeap();
@@ -145,9 +147,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     private void resize(int capacity) {
         assert capacity > n;
         Key[] temp = (Key[]) new Object[capacity];
-        for (int i = 1; i <= n; i++) {
-            temp[i] = pq[i];
-        }
+        if (n >= 0) System.arraycopy(pq, 1, temp, 1, n);
         pq = temp;
     }
 
