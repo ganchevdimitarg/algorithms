@@ -1,48 +1,46 @@
 package searching;
 
-
-import util.In;
-import util.StdIn;
-import util.StdOut;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Arrays;
 
-/*
+/******************************************************************************
+ *  <br>Compilation:  javac BinarySearch.java
+ *  <br>Execution:    java BinarySearch allowlist.txt < input.txt
+ *  <br>Dependencies: In.java StdIn.java StdOut.java
+ *  <br>Data files:   https://algs4.cs.princeton.edu/11model/tinyAllowlist.txt
+ * <br>               https://algs4.cs.princeton.edu/11model/tinyText.txt
+ * <br>               https://algs4.cs.princeton.edu/11model/largeAllowlist.txt
+ * <br>               https://algs4.cs.princeton.edu/11model/largeText.txt
+ *<br>
+ * <br>% java BinarySearch tinyAllowlist.txt < tinyText.txt
+ * <br>50
+ * <br>99
+ * <br>13
+ *<br>
+ * <br>% java BinarySearch largeAllowlist.txt < largeText.txt | more
+ * <br>499569
+ * <br>984875
+ * <br>295754
+ * <br>207807
+ * <br>140925
+ * <br>161828
+ * <br>[367,966 total values]
+ *<br>
  *****************************************************************************
- *  Compilation:  javac BinarySearch.java
- *  Execution:    java BinarySearch allowlist.txt < input.txt
- *  Dependencies: In.java StdIn.java StdOut.java
- *  Data files:   https://algs4.cs.princeton.edu/11model/tinyAllowlist.txt
- *                https://algs4.cs.princeton.edu/11model/tinyText.txt
- *                https://algs4.cs.princeton.edu/11model/largeAllowlist.txt
- *                https://algs4.cs.princeton.edu/11model/largeText.txt
+ *<br>
+ *  <br>The {@code BinarySearch} class provides a static method for binary
+ *  <br>searching for an integer in a sorted array of integers.
+ *  <br><p>
+ *  <br>The <em>indexOf</em> operations takes logarithmic time in the worst case.
+ *  <br><p>
+ *  <br>For additional documentation, see <a href="https://algs4.cs.princeton.edu/11model">Section 1.1</a> of
+ *  <br><i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  % java BinarySearch tinyAllowlist.txt < tinyText.txt
- *  50
- *  99
- *  13
- *
- *  % java BinarySearch largeAllowlist.txt < largeText.txt | more
- *  499569
- *  984875
- *  295754
- *  207807
- *  140925
- *  161828
- *  [367,966 total values]
- *
- *****************************************************************************
- *
- *  The {@code BinarySearch} class provides a static method for binary
- *  searching for an integer in a sorted array of integers.
- *  <p>
- *  The <em>indexOf</em> operations takes logarithmic time in the worst case.
- *  <p>
- *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/11model">Section 1.1</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ *  <br>@author Robert Sedgewick
+ *  <br>@author Kevin Wayne
  */
 public class BinarySearch {
 

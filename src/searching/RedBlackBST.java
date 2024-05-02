@@ -1,8 +1,7 @@
 package searching;
 
-
-import util.StdIn;
-import util.StdOut;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.NoSuchElementException;
 
@@ -109,11 +108,9 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     public RedBlackBST() {
     }
 
-    /*
-     **************************************************************************
+    /***************************************************************************
      *  Node helper methods.
-     **************************************************************************
-     */
+     ***************************************************************************/
     // is node x red; false if x is null ?
     private boolean isRed(Node x) {
         if (x == null) return false;
@@ -205,7 +202,9 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
     public void put(Key key, Value val) {
-        if (key == null) throw new IllegalArgumentException("first argument to put() is null");
+        if (key == null) {
+            throw new IllegalArgumentException("first argument to put() is null");
+        }
         if (val == null) {
             delete(key);
             return;
@@ -218,20 +217,35 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
     // insert the key-value pair in the subtree rooted at h
     private Node put(Node h, Key key, Value val) {
-        if (h == null) return new Node(key, val, RED, 1);
+        if (h == null) {
+            return new Node(key, val, RED, 1);
+        }
+
 
         int cmp = key.compareTo(h.key);
-        if (cmp < 0) h.left = put(h.left, key, val);
-        else if (cmp > 0) h.right = put(h.right, key, val);
-        else h.val = val;
+        if (cmp < 0) {
+            h.left = put(h.left, key, val);
+        } else if (cmp > 0) {
+            h.right = put(h.right, key, val);
+        } else {
+            h.val = val;
+        }
 
         // fix-up any right-leaning links
-        if (isRed(h.right) && !isRed(h.left)) h = rotateLeft(h);
-        if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
-        if (isRed(h.left) && isRed(h.right)) flipColors(h);
+        /*if (isRed(h.right) && !isRed(h.left)) {
+            h = rotateLeft(h);
+        }
+        if (isRed(h.left) && isRed(h.left.left)) {
+            h = rotateRight(h);
+        }
+        if (isRed(h.left) && isRed(h.right)) {
+            flipColors(h);
+        }
         h.size = size(h.left) + size(h.right) + 1;
 
-        return h;
+        return h;*/
+
+        return balance(h);
     }
 
     /*
@@ -427,10 +441,15 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     private Node balance(Node h) {
         // assert (h != null);
 
-        if (isRed(h.right) && !isRed(h.left)) h = rotateLeft(h);
-        if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
-        if (isRed(h.left) && isRed(h.right)) flipColors(h);
-
+        if (isRed(h.right) && !isRed(h.left)) {
+            h = rotateLeft(h);
+        }
+        if (isRed(h.left) && isRed(h.left.left)) {
+            h = rotateRight(h);
+        }
+        if (isRed(h.left) && isRed(h.right)) {
+            flipColors(h);
+        }
         h.size = size(h.left) + size(h.right) + 1;
         return h;
     }
@@ -673,7 +692,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
 
     /*
-    **************************************************************************
+     **************************************************************************
      *  Check integrity of red-black tree data structure.
      **************************************************************************
      */

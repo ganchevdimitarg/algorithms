@@ -1,8 +1,9 @@
 package sort;
 
-import util.StdIn;
-import util.StdOut;
-import util.StdRandom;
+
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
 
 /*
  *****************************************************************************

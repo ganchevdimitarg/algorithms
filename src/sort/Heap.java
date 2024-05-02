@@ -1,7 +1,7 @@
 package sort;
 
-import util.StdIn;
-import util.StdOut;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 /*
  *****************************************************************************
@@ -101,8 +101,8 @@ public class Heap {
 
     // print array to standard output
     private static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
+        for (Comparable comparable : a) {
+            StdOut.println(comparable);
         }
     }
 

@@ -1,74 +1,72 @@
 package searching;
 
-import util.StdIn;
-import util.StdOut;
+import edu.princeton.cs.algs4.*;
 
 import java.util.NoSuchElementException;
 
-/*
+/******************************************************************************
+ * <br> Compilation:  javac BST.java
+ * <br> Execution:    java BST
+ * <br> Dependencies: StdIn.java StdOut.java Queue.java
+ * <br> Data files:   https://algs4.cs.princeton.edu/32bst/tinyST.txt
+ *<br>
+ * <br> A symbol table implemented with a binary search tree.
+ *<br>
+ * <br> % more tinyST.txt
+ * <br> S E A R C H E X A M P L E
+ *<br>
+ * <br> % java BST < tinyST.txt
+ * <br> A 8
+ * <br> C 4
+ * <br> E 12
+ * <br> H 5
+ * <br> L 11
+ * <br> M 9
+ * <br> P 10
+ * <br> R 3
+ * <br> S 0
+ * <br> X 7
+ *<br>
  *****************************************************************************
- *  Compilation:  javac BST.java
- *  Execution:    java BST
- *  Dependencies: StdIn.java StdOut.java Queue.java
- *  Data files:   https://algs4.cs.princeton.edu/32bst/tinyST.txt
- *
- *  A symbol table implemented with a binary search tree.
- *
- *  % more tinyST.txt
- *  S E A R C H E X A M P L E
- *
- *  % java BST < tinyST.txt
- *  A 8
- *  C 4
- *  E 12
- *  H 5
- *  L 11
- *  M 9
- *  P 10
- *  R 3
- *  S 0
- *  X 7
- *
- *****************************************************************************
- *
- *  The {@code BST} class represents an ordered symbol table of generic
- *  key-value pairs.
- *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
- *  It also provides ordered methods for finding the <em>minimum</em>,
- *  <em>maximum</em>, <em>floor</em>, <em>select</em>, <em>ceiling</em>.
- *  It also provides a <em>keys</em> method for iterating over all of the keys.
- *  A symbol table implements the <em>associative array</em> abstraction:
- *  when associating a value with a key that is already in the symbol table,
- *  the convention is to replace the old value with the new value.
- *  Unlike {@link java.util.Map}, this class uses the convention that
- *  values cannot be {@code null}—setting the
- *  value associated with a key to {@code null} is equivalent to deleting the key
- *  from the symbol table.
+ *<br>
+ * <br> The {@code BST} class represents an ordered symbol table of generic
+ * <br> key-value pairs.
+ * <br> It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
+ * <br> <em>delete</em>, <em>size</em>, and <em>is-empty</em> methods.
+ * <br> It also provides ordered methods for finding the <em>minimum</em>,
+ * <br> <em>maximum</em>, <em>floor</em>, <em>select</em>, <em>ceiling</em>.
+ * <br> It also provides a <em>keys</em> method for iterating over all of the keys.
+ * <br> A symbol table implements the <em>associative array</em> abstraction:
+ * <br> when associating a value with a key that is already in the symbol table,
+ * <br> the convention is to replace the old value with the new value.
+ * <br> Unlike {@link java.util.Map}, this class uses the convention that
+ * <br> values cannot be {@code null}—setting the
+ * <br> value associated with a key to {@code null} is equivalent to deleting the key
+ * <br> from the symbol table.
+ * <p>
+ * <br> It requires that
+ * <br> the key type implements the {@code Comparable} interface and calls the
+ * <br> {@code compareTo()} and method to compare two keys. It does not call either
+ * <br> {@code equals()} or {@code hashCode()}.
  *  <p>
- *  It requires that
- *  the key type implements the {@code Comparable} interface and calls the
- *  {@code compareTo()} and method to compare two keys. It does not call either
- *  {@code equals()} or {@code hashCode()}.
+ * <br> This implementation uses an (unbalanced) <em>binary search tree</em>.
+ * <br> The <em>put</em>, <em>contains</em>, <em>remove</em>, <em>minimum</em>,
+ * <br> <em>maximum</em>, <em>ceiling</em>, <em>floor</em>, <em>select</em>, and
+ * <br> <em>rank</em>  operations each take &Theta;(<em>n</em>) time in the worst
+ * <br> case, where <em>n</em> is the number of key-value pairs.
+ * <br> The <em>size</em> and <em>is-empty</em> operations take &Theta;(1) time.
+ * <br> The keys method takes &Theta;(<em>n</em>) time in the worst case.
+ * <br> Construction takes &Theta;(1) time.
  *  <p>
- *  This implementation uses an (unbalanced) <em>binary search tree</em>.
- *  The <em>put</em>, <em>contains</em>, <em>remove</em>, <em>minimum</em>,
- *  <em>maximum</em>, <em>ceiling</em>, <em>floor</em>, <em>select</em>, and
- *  <em>rank</em>  operations each take &Theta;(<em>n</em>) time in the worst
- *  case, where <em>n</em> is the number of key-value pairs.
- *  The <em>size</em> and <em>is-empty</em> operations take &Theta;(1) time.
- *  The keys method takes &Theta;(<em>n</em>) time in the worst case.
- *  Construction takes &Theta;(1) time.
- *  <p>
- *  For alternative implementations of the symbol table API, see {@link ST},
- *  {@link BinarySearchST}, {@link SequentialSearchST}, {@link RedBlackBST},
- *  {@link SeparateChainingHashST}, and {@link LinearProbingHashST},
- *  For additional documentation, see
- *  <a href="https://algs4.cs.princeton.edu/32bst">Section 3.2</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ * <br> For alternative implementations of the symbol table API, see {@link ST},
+ * <br> {@link BinarySearchST}, {@link SequentialSearchST}, {@link RedBlackBST},
+ * <br> {@link SeparateChainingHashST}, and {@link LinearProbingHashST},
+ * <br> For additional documentation, see
+ * <br> <a href="https://algs4.cs.princeton.edu/32bst">Section 3.2</a> of
+ * <br> <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
  *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * <br> @author Robert Sedgewick
+ * <br> @author Kevin Wayne
  */
 
 public class BST<Key extends Comparable<Key>, Value> {
@@ -517,7 +515,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     /*************************************************************************
-     *  Check integrity of BST data structure.
+     *  <br>Check integrity of BST data structure.
      ***************************************************************************/
     private boolean check() {
         if (!isBST()) StdOut.println("Not in symmetric order");

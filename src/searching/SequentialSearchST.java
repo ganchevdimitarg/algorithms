@@ -1,7 +1,8 @@
 package searching;
 
-import util.StdIn;
-import util.StdOut;
+
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 /*
  *****************************************************************************
@@ -207,7 +208,7 @@ public class SequentialSearchST<Key, Value> {
      */
     public static void main(String[] args) {
         SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
-        for (int i = 0; !StdIn.isEmpty(); i++) {
+        for (int i = 0; ! StdIn.isEmpty(); i++) {
             String key = StdIn.readString();
             st.put(key, i);
         }
