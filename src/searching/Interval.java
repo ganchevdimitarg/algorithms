@@ -36,8 +36,7 @@ public class Interval<Key extends Comparable<Key>> {
     public boolean intersects(Interval<Key> b) {
         Interval<Key> a  = this;
         if (less(a.max, b.min)) return false;
-        if (less(b.max, a.min)) return false;
-        return true;
+        return !less(b.max, a.min);
     }
 
     // does this interval a equal interval b?
