@@ -12,6 +12,10 @@ package hashing;
  *
  ******************************************************************************/
 
+import edu.princeton.cs.algs4.BinarySearchST;
+import edu.princeton.cs.algs4.ST;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 import searching.BST;
 import searching.Queue;
 import searching.RedBlackBST;
