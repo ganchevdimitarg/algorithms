@@ -61,7 +61,9 @@ public class Shell {
 
         // 3x+1 increment sequence:  1, 4, 13, 40, 121, 364, 1093, ...
         int h = 1;
-        while (h < n / 3) h = 3 * h + 1;
+        while (h < n / 3) {
+            h = 3 * h + 1;
+        }
 
         while (h >= 1) {
             // h-sort the array
@@ -123,7 +125,8 @@ public class Shell {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
+//        String[] a = StdIn.readAllStrings();
+        String[] a = {"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
         Shell.sort(a);
         show(a);
     }

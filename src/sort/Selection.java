@@ -155,7 +155,8 @@ public class Selection {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
+//        String[] a = StdIn.readAllStrings();
+        String[] a = {"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
         Selection.sort(a);
         show(a);
     }

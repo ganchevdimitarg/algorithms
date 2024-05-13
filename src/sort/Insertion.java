@@ -1,5 +1,6 @@
 package sort;
 
+import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdIn;
 
@@ -72,6 +73,22 @@ public class Insertion {
         }
         assert isSorted(a);
     }
+
+    public static void sortImprove(Comparable[] a) {
+        int n = a.length;
+        for (int i = 1; i < n; i++) {
+            Comparable current = a[i];
+            int j;
+            for (j = i; j > 0 && less(current, a[j - 1]); j--) {
+                a[j] = a[j - 1];
+            }
+            a[j] = current;
+
+//            assert isSorted(a, 0, i);
+        }
+//        assert isSorted(a);
+    }
+
 
     /**
      * Rearranges the subarray a[lo..hi) in ascending order, using the natural order.
@@ -214,8 +231,10 @@ public class Insertion {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
-        Insertion.sort(a);
+//        String[] a = StdIn.readAllStrings();
+        String[] a = {"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
+//        Insertion.sort(a);
+        Insertion.sortImprove(a);
         show(a);
     }
 }

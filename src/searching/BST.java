@@ -27,8 +27,9 @@ import java.util.NoSuchElementException;
  * <br> S 0
  * <br> X 7
  *<br>
- *****************************************************************************
- *<br>
+ ****************************************************************************
+ */
+ /**
  * <br> The {@code BST} class represents an ordered symbol table of generic
  * <br> key-value pairs.
  * <br> It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
@@ -44,8 +45,7 @@ import java.util.NoSuchElementException;
  * <br> value associated with a key to {@code null} is equivalent to deleting the key
  * <br> from the symbol table.
  * <p>
- * <br> It requires that
- * <br> the key type implements the {@code Comparable} interface and calls the
+ * <br> It requires that the key type implements the {@code Comparable} interface and calls the
  * <br> {@code compareTo()} and method to compare two keys. It does not call either
  * <br> {@code equals()} or {@code hashCode()}.
  *  <p>

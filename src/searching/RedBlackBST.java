@@ -1,7 +1,6 @@
 package searching;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.*;
 
 import java.util.NoSuchElementException;
 
@@ -33,7 +32,9 @@ import java.util.NoSuchElementException;
  *  S 0
  *  X 7
  *
- *****************************************************************************
+ ***************************************************************************
+ */
+ /**
  *
  *  The {@code BST} class represents an ordered symbol table of generic
  *  key-value pairs.
@@ -143,13 +144,13 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     }
 
 
-    /*
+    /**
      **************************************************************************
      *  Standard BST search.
      **************************************************************************
      */
 
-    /*
+    /**
      * Returns the value associated with the given key.
      *
      * @param key the key
@@ -173,7 +174,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return null;
     }
 
-    /*
+    /**
      * Does this symbol table contain the given key?
      *
      * @param key the key
@@ -191,7 +192,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
      **************************************************************************
      */
 
-    /*
+    /**
      * Inserts the specified key-value pair into the symbol table, overwriting the old
      * value with the new value if the symbol table already contains the specified key.
      * Deletes the specified key (and its associated value) from this symbol table
